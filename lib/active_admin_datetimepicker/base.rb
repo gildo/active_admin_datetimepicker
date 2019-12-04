@@ -28,7 +28,7 @@ module ActiveAdminDatetimepicker
       val = object.public_send(input_name || method)
       if val.nil?
         val
-      elsif column.type == :date
+      elsif column&.type == :date
         val
       else
         DateTime.new(val.year, val.month, val.day, val.hour, val.min, val.sec).strftime(format)
